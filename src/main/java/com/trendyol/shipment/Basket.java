@@ -10,11 +10,12 @@ public class Basket {
 
         if (products.isEmpty()) { throw new IllegalArgumentException("There is no product in the basket!"); }
 
+        int thresholdValue = 3;
         int[] sizeQuantities = countSizeQuantities();
 
-        if (products.size() >= 3) {
-            for (int i = 0 ; i < sizeQuantities.length ; i++) {
-                if (sizeQuantities[ i ] >= 3) {
+        if (products.size() >= thresholdValue) {
+            for (int i = sizeQuantities.length - 1 ; i >= 0 ; i--) {
+                if (sizeQuantities[ i ] >= thresholdValue) {
                     return shipmentNumericValueToSize(i + 1);
                 }
             }
