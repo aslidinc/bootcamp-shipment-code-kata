@@ -8,7 +8,7 @@ public class Basket {
 
     public ShipmentSize getShipmentSize() {
 
-        if (products.isEmpty()) { return null; }
+        if (products.isEmpty()) { throw new IllegalArgumentException("There is no product in the basket!"); }
 
         int[] sizeQuantities = countSizeQuantities();
 
